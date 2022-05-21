@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="5.1.1" />
+    <PackageReference Include="SerilogTimings" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MyFilms.Core\MyFilms.Core.csproj" />
     <ProjectReference Include="..\MyFilms.Data\MyFilms.Data.csproj" />
   </ItemGroup>
