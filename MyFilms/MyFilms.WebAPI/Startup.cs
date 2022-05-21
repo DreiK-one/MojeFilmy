@@ -9,6 +9,8 @@ using MyFilms.Core.Interfaces.Data;
 using MyFilms.DataAccess;
 using MyFilms.Data.Entities;
 using FluentValidation.AspNetCore;
+using MyFilms.Core.Interfaces;
+using MyFilms.Domain.Services;
 
 namespace MyFilms.WebAPI
 {
@@ -28,32 +30,12 @@ namespace MyFilms.WebAPI
                 options.UseSqlServer(connectionString));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-
             services.AddScoped<IBaseRepository<Film>, FilmRepository>();
+            services.AddScoped<IFilmService, FilmService>();
 
             services.AddScoped<TelemetryClient>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                .AddJwtBearer(options =>
-                {
-                    options.SaveToken = true;
-                    options.RequireHttpsMetadata = true;
-                    options.TokenValidationParameters = new TokenValidationParameters()
-                    {
-                        ValidateIssuerSigningKey = true,
-                        ValidateIssuer = false,
-                        ValidateAudience = false,
-                        ClockSkew = TimeSpan.Zero,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["AppSettings:Secret"]))
-                    };
-                });
 
             services.AddCors(options =>
             {

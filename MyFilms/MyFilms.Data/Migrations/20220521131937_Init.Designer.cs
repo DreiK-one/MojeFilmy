@@ -12,7 +12,7 @@ using MyFilms.Data;
 namespace MyFilms.Data.Migrations
 {
     [DbContext(typeof(MyFilmsContext))]
-    [Migration("20220521112147_Init")]
+    [Migration("20220521131937_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,15 +30,12 @@ namespace MyFilms.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CreationYear")
+                    b.Property<int?>("CreationYear")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<float?>("Rating")
-                        .HasColumnType("real");
 
                     b.Property<string>("Title")
                         .IsRequired()

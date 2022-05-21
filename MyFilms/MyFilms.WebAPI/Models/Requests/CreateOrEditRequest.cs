@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace MyFilms.Core.DTOs
+namespace MyFilms.WebAPI.Models.Requests
 {
-    public class FilmDto
+    public class CreateOrEditRequest
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
