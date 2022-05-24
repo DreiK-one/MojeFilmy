@@ -5,15 +5,15 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{5289F86D-3240-4E5F-93A4-A1923500D355}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFilms.Data", "MyFilms.Data\MyFilms.Data.csproj", "{7F60BE4E-F627-4C8C-91CB-88A290AAC464}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFilms.Data", "MyFilms.Data\MyFilms.Data.csproj", "{7F60BE4E-F627-4C8C-91CB-88A290AAC464}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFilms.DataAccess", "MyFilms.DataAccess\MyFilms.DataAccess.csproj", "{F6F71C44-3130-4D36-99AA-4A1E5F226AF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFilms.DataAccess", "MyFilms.DataAccess\MyFilms.DataAccess.csproj", "{F6F71C44-3130-4D36-99AA-4A1E5F226AF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFilms.Core", "MyFilms.Core\MyFilms.Core.csproj", "{9F9075A5-58F5-4376-B2D7-27FA8C3D11D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFilms.Core", "MyFilms.Core\MyFilms.Core.csproj", "{9F9075A5-58F5-4376-B2D7-27FA8C3D11D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFilms.Domain", "MyFilms.Domain\MyFilms.Domain.csproj", "{88933927-A761-4036-BD82-23143B5D6322}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFilms.Domain", "MyFilms.Domain\MyFilms.Domain.csproj", "{88933927-A761-4036-BD82-23143B5D6322}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFilms.WebAPI", "MyFilms.WebAPI\MyFilms.WebAPI.csproj", "{F221851B-FD14-4FBD-9929-46A7CED55B77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFilms.WebAPI", "MyFilms.WebAPI\MyFilms.WebAPI.csproj", "{F221851B-FD14-4FBD-9929-46A7CED55B77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

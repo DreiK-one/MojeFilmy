@@ -37,7 +37,7 @@ namespace MyFilms.WebAPI.Controllers
             {
                 if (id == Guid.Empty)
                 {
-                    return BadRequest(new ResponseMessage { Message = "Identificator is null" });
+                    return BadRequest("Identificator is null");
                 }
 
                 var film = await _filmService.GetFilmById(id);
@@ -55,7 +55,7 @@ namespace MyFilms.WebAPI.Controllers
             {
                 _logger.LogError($"{DateTime.Now}: Exception in {ex.Source}, " +
                     $"message: {ex.Message}, stacktrace: {ex.StackTrace}");
-                return StatusCode(500, new ResponseMessage { Message = ex.Message });
+                return StatusCode(500, ex.Message);
             }
         }
 
@@ -82,7 +82,7 @@ namespace MyFilms.WebAPI.Controllers
             {
                 _logger.LogError($"{DateTime.Now}: Exception in {ex.Source}, " +
                     $"message: {ex.Message}, stacktrace: {ex.StackTrace}");
-                return StatusCode(500, new ResponseMessage { Message = ex.Message });
+                return StatusCode(500, ex.Message);
             }
         }
 
@@ -96,17 +96,17 @@ namespace MyFilms.WebAPI.Controllers
             {
                 if (!ModelState.IsValid || request == null)
                 {
-                    return BadRequest(new ResponseMessage { Message = "Request is null or invalid" });
+                    return BadRequest("Request is null or invalid");
                 }
 
                 await _filmService.AddFilm(_mapper.Map<FilmDto>(request));
-                return Ok(new ResponseMessage { Message = "Film added!" });
+                return Ok("Film added!");
             }
             catch (Exception ex)
             {
                 _logger.LogError($"{DateTime.Now}: Exception in {ex.Source}, " +
                     $"message: {ex.Message}, stacktrace: {ex.StackTrace}");
-                return BadRequest(new ResponseMessage { Message = ex.Message });
+                return BadRequest(ex.Message);
             }
         }
 
@@ -120,12 +120,12 @@ namespace MyFilms.WebAPI.Controllers
             {
                 if (!ModelState.IsValid || request == null)
                 {
-                    return BadRequest(new ResponseMessage { Message = "Request is null or invalid" });
+                    return BadRequest("Request is null or invalid");
                 }
                 var film = await _filmService.GetFilmById(id);
                 if (film == null)
                 {
-                    return BadRequest(new ResponseMessage { Message = $"Film with id {id} not found" });
+                    return BadRequest($"Film with id {id} not found");
                 }
 
                 film.Title = request.Title;
@@ -133,13 +133,13 @@ namespace MyFilms.WebAPI.Controllers
                 film.CreationYear = request.CreationYear;
 
                 await _filmService.EditFilm(film);
-                return Ok(new ResponseMessage { Message = "Changes applied!" });
+                return Ok("Changes applied!");
             }
             catch (Exception ex)
             {
                 _logger.LogError($"{DateTime.Now}: Exception in {ex.Source}, " +
                     $"message: {ex.Message}, stacktrace: {ex.StackTrace}");
-                return BadRequest(new ResponseMessage { Message = ex.Message });
+                return BadRequest(ex.Message);
             }
         }
 
@@ -153,17 +153,17 @@ namespace MyFilms.WebAPI.Controllers
             {
                 if (id == Guid.Empty)
                 {
-                    return BadRequest(new ResponseMessage { Message = "Identificator is null" });
+                    return BadRequest("Identificator is null" );
                 }
 
                 await _filmService.DeleteFilm(id);
-                return Ok(new ResponseMessage { Message = "Film deleted!" });
+                return Ok("Film deleted!");
             }
             catch (Exception ex)
             {
                 _logger.LogError($"{DateTime.Now}: Exception in {ex.Source}, " +
                     $"message: {ex.Message}, stacktrace: {ex.StackTrace}");
-                return StatusCode(500, new ResponseMessage { Message = ex.Message });
+                return StatusCode(500, ex.Message);
             }
         }
     }

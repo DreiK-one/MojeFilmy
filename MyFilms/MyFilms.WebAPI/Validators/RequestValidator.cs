@@ -7,8 +7,6 @@ namespace MyFilms.WebAPI.Validators
     {
         public RequestValidator()
         {
-            RuleFor(film => film.Id)
-                .NotEmpty().WithMessage("Id is required!");
             RuleFor(film => film.Title)
                .NotEmpty().WithMessage("Title is required!")
                .MaximumLength(200).WithMessage("Max length of title is 200");

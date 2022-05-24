@@ -68,6 +68,7 @@ namespace MyFilms.Domain.Services
             {
                 if (filmDto != null)
                 {
+                    filmDto.Id = Guid.NewGuid();
                     await _unitOfWork.Films.Add(_mapper.Map<Film>(filmDto));
                     return await _unitOfWork.Save();
                 }
